@@ -1,20 +1,12 @@
-﻿Console.WriteLine("Введите первое число: ");
+﻿Console.Write("Введите первое число: ");
 int m = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите второе число: ");
+Console.Write("Введите второе число: ");
 int n = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine($"M={m}; N={n}");
 
-void NaturalNumber(int m, int n)
+string NaturalNumberRec(int m, int n)
 {
-    if (n > m) 
-    {
-        for (int i = m; i <= n; i++)
-        Console.Write($"{i}, ");
-    }      
-    else
-    {
-        for (int i = n; i <= m; i++) 
-        Console.Write($"{i}, ");
-    }
+    if (m == n) return Convert.ToString(m);
+    else return m + ", " + NaturalNumberRec(m + 1, n);
 }
-NaturalNumber(m, n);
+Console.WriteLine(NaturalNumberRec(m, n));
